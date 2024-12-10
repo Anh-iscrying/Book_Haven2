@@ -7,6 +7,6 @@ Website sẽ mang đến trải nghiệm mua sắm sách cá nhân hóa và ti�
 3. Tính năng
 
 ## Công nghệ sử dụng
-Giao diện: HTML, CSS, JavaScript
-PhP, Laravel framework
-Cơ sở dữ liệu: MySQL
+1. Giao diện: HTML, CSS, JavaScript
+2. PhP, Laravel framework
+3. Cơ sở dữ liệu: MySQL
