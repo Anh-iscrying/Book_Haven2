@@ -23,7 +23,18 @@ Dự án phần mềm website BookHaven sẽ mang đến trải nghiệm mua s�
 ## Sơ đồ chức năng
 1. Sơ đồ chức năng
    ![Sơ đồ chức năng](so_do/sd_chuc_nang.png)
-
+2. Sơ đồ giao diện người dùng
+   ![Sơ đồ 2](so_do/sd_gd_nguoi_dung.png)
+3. Sơ đồ tài khoản
+   ![Sơ đồ 3](so_do/sd_tai_khoan.png)
+4. Sơ đồ tìm kiếm
+   ![Sơ đồ](so_do/sd_tim_kiem.png)
+5. Sơ đồ quản lý sách
+   ![Sơ đồ](so_do/sd_ql_sach.png)
+6. Sơ đồ quản lý đơn hàng
+   ![Sơ đồ](so_do/sd_ql_don_hang.png)
+7. Sơ đồ quản lý thanh toán
+   ![Sơ đồ](so_do/sd_ql_thanh_toan.png)
 ## Công nghệ sử dụng
 1. Giao diện: HTML, CSS, JavaScript
 2. PhP, Laravel framework
