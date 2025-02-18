@@ -20,6 +20,10 @@ Dự án phần mềm website BookHaven sẽ mang đến trải nghiệm mua s�
   + Giỏ hàng: Người dùng có thể thêm sách vào giỏ hàng hoặc danh sách yêu thích để mua sau.
   + Thanh toán đa dạng: Hỗ trợ thanh toán chuyển khoản, thanh toán khi nhận hàng.
   + Theo dõi đơn hàng: Cho phép người mua theo dõi quá trình vận chuyển và trạng thái đơn hàng.
+## Sơ đồ chức năng
+1. Sơ đồ chức năng
+   ![Sơ đồ chức năng](so_do/sd_chuc_nang.png)
+
 ## Công nghệ sử dụng
 1. Giao diện: HTML, CSS, JavaScript
 2. PhP, Laravel framework
