@@ -11,27 +11,43 @@
     <link rel="stylesheet" href="{{ asset('css/Chi_tiet_san_pham.css') }}" type="text/css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>{{ $book->book_title ?? 'Chi tiết sách' }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
+    <!-- header -->
     <header>
-        <nav>
-            <div class="content-nav">
-                <div class="img-nav">
-                    <img src="{{ asset('images/book_haven.jpg') }}" width="50px" height="50px" alt="Book Haven Logo" />
-                </div>
-
-                <ul>
-                    <li><a href="{{ route('trangchu') }}">Trang Chủ</a></li>
-                    <li><a href="#">Sản Phẩm</a>
-                        <ul>
-                            @foreach ($categories as $category)
-                                <li><a href="{{ route('phanloai', $category->id) }}">{{ $category->category_name }}</a></li>
-                            @endforeach
-                        </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <a class="navbar-brand" href="index.php">
+                <img src="{{ asset('images/book_haven.jpg')}}" width="50" height="50" class="d-inline-block align-top" alt="Book Haven">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Trang_chủ.php">Trang Chủ <span class="sr-only">(current)</span></a>
                     </li>
-                    <li><a href="#">Liên Hệ</a></li>
-                    <li><a href="{{ route('gioithieu') }}">Giới Thiệu</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sản Phẩm
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Liên_hệ.html">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Giới_thiệu.php">Giới Thiệu</a>
+                    </li>
                 </ul>
+                <form class="form-inline ml-auto" method="post" action="">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
             </div>
             <a href="{{ route('giohang') }}">
             <button id="cart">
@@ -39,9 +55,27 @@
                 <li>Giỏ hàng</li>
             </button>
             </a>
+
             <ul class="login">
-                <li><a href="{{ route('logout') }}">Đăng xuất</a></li>
-            
+                @guest  {{-- Nếu người dùng chưa đăng nhập --}}
+                    <li><a href="{{ route('login') }}">Đăng nhập</a></li>
+                    <li><a href="{{ route('register') }}">Đăng ký</a></li>
+                @else  {{-- Nếu người dùng đã đăng nhập --}}
+                    <li>
+                        <a href="#">Xin chào, {{ Auth::user()->name }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            Đăng xuất
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                @endguest
             </ul>
         </nav>
     </header>

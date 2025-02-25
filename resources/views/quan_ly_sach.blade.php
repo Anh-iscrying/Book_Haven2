@@ -13,6 +13,12 @@
 <body>
     <div class="header">
         <a href="{{ route('trangchu') }}"><</a>
+
+        <!-- Form Đăng Xuất -->
+        <form action="{{ route('logout') }}" method="POST" class="logout-form">
+            @csrf
+            <button type="submit" class="logout-button">Đăng xuất</button>
+        </form>
     </div>
 
     <div class="container">
@@ -34,7 +40,7 @@
                   </div>
                   <div class="book-right row">
                       <button class="button" onclick="deleteBook({{ $book->book_id }})">Xóa</button>
-                      <button class="button" onclick="editBook({{ $book->book_id }}, '{{ addslashes($book->book_title) }}')">Sửa</button>
+                      <button class="button" onclick="editBook({{ $book->book_id }})">Sửa</button>
                   </div>
               </div>
           @endforeach
@@ -43,18 +49,39 @@
       @endif
     </div>
 
-    <div id="edit-form" style="display: none;">
-      <h2>Sửa thông tin sách</h2>
-        <form id="edit-book-form">
-          <input type="hidden" id="edit-book-id">
-          <label for="edit-title">Tiêu đề:</label>
-          <input type="text" id="edit-title" placeholder="Nhập tiêu đề sách">
-          <button type="submit" id="update-book-btn">Cập nhật</button>
-          <button type="button" onclick="cancelEdit()">Hủy</button>
-      </form>
-    </div>
   </div>
 
-  <script src="{{ asset('javascript/QLS.js') }}"></script>
+  <script>
+    function deleteBook(bookId) {
+        if (confirm("Bạn có chắc chắn muốn xóa sách này?")) {
+            // Tạo một form ẩn để gửi request DELETE
+            var form = document.createElement("form");
+            form.method = "POST";
+            form.action = "/quan-ly-sach/" + bookId; // Đường dẫn đến route xóa sách
+
+            // Thêm CSRF token
+            var csrfToken = document.createElement("input");
+            csrfToken.type = "hidden";
+            csrfToken.name = "_token";
+            csrfToken.value = "{{ csrf_token() }}"; // Lấy CSRF token từ Blade
+            form.appendChild(csrfToken);
+
+            // Thêm method spoofing để giả lập method DELETE
+            var methodField = document.createElement("input");
+            methodField.type = "hidden";
+            methodField.name = "_method";
+            methodField.value = "DELETE";
+            form.appendChild(methodField);
+
+            document.body.appendChild(form); // Thêm form vào body
+            form.submit(); // Submit form
+        }
+    }
+
+    function editBook(bookId) {
+        // Chuyển hướng đến trang chỉnh sửa sách
+        window.location.href = "/quan-ly-sach/" + bookId + "/edit"; // Đường dẫn đến route chỉnh sửa sách
+    }
+  </script>
 </body>
 </html>

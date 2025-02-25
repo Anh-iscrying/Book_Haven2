@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class BookController extends Controller
 {
@@ -36,7 +37,7 @@ class BookController extends Controller
                 $image->move(public_path('images'), $imageName); // Lưu trữ hình ảnh vào thư mục public/images
             } catch (\Exception $e) {
                 // Ghi log lỗi
-                \Log::error('Lỗi lưu file ảnh: ' . $e->getMessage());
+                Log::error('Lỗi lưu file ảnh: ' . $e->getMessage());
                 // Hiển thị thông báo lỗi cho người dùng
                 return back()->with('error', 'Có lỗi xảy ra khi lưu file ảnh. Vui lòng thử lại.');
             }

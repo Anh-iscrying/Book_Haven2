@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/Tao_san_pham.css') }}" type="text/css">
     <title>Truyện của tôi</title>
-</head>
+    
 <body>
     <div class="header">
         <a href="{{ route('quanly.sach') }}"><</a>
@@ -30,24 +30,24 @@
                     <!--Nhập tên truyện, mô tả và chọn thể loại-->
                     <div class="book">
                         <!--Tiêu đề và mô tả-->
-                        <p for="book-title">Tiêu đề:</p>
+                        <label for="book-title">Tiêu đề:</label>
                         @error('book_title')
                             <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
                         @enderror
-                        <input type="text" name="book_title" id="book-title" placeholder="Nhập tiêu đề của truyện" width="200px" contenteditable="true">
+                        <input type="text" name="book_title" id="book-title" placeholder="Nhập tiêu đề của truyện" contenteditable="true">
 
-                        <p for="book-describe">Mô tả:</p>
+                        <label for="book-describe">Mô tả:</label>
                         @error('book_description')
                             <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
                         @enderror
-                        <textarea id="book-describe" name="book_description" placeholder="Viết mô tả của truyện ở đây" width="300px" height="300px"></textarea> <br>
+                        <textarea id="book-describe" name="book_description" placeholder="Viết mô tả của truyện ở đây"></textarea> <br>
 
                         <div class="hd">
-                            <p>Tác giả:</p>
+                            <label for="book_author">Tác giả:</label>
                             @error('book_author')
                                 <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
                             @enderror
-                            <input type="text" name="book_author" id="book_author" width="200px" placeholder="Nhập tên tác giả" />
+                            <input type="text" name="book_author" id="book_author" placeholder="Nhập tên tác giả" />
                         </div>
 
                         <label for="book_publisher">Nhà xuất bản:</label>
@@ -65,7 +65,7 @@
                         @error('book_size')
                             <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
                         @enderror
-                        <select id="book_size" name="book_size" width="200px" required>
+                        <select id="book_size" name="book_size" required>
                             <option value="11.3x17.6 cm">11.3x17.6 cm</option>
                             <option value="13x18 cm">13x18 cm</option>
                             <option value="15.7x24 cm">15.7x24 cm</option>
@@ -73,15 +73,15 @@
                         </select>
 
                         <div class="hd">
-                            <p>Số tiền:</p>
+                            <label for="book_original_price">Số tiền:</label>
                             @error('book_original_price')
                                 <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
                             @enderror
-                            <input type="number" name="book_original_price" id="book_original_price" width="200px" placeholder="Nhập số tiền" min="0" step="1000" required />
+                            <input type="number" name="book_original_price" id="book_original_price" placeholder="Nhập số tiền" min="0" step="1000" required />
                         </div>
 
                         <div class="hd">
-                            <p>Phần trăm giảm:</p>
+                            <label for="book_discount">Phần trăm giảm:</label>
                             @error('book_discount')
                                 <div class="alert alert-danger" style="color: red;">{{ $message }}</div>
                             @enderror

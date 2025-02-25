@@ -120,3 +120,80 @@ body {
   .book-right button:hover{
     background-color: #eb3c15;
   }
+
+/* Style cho form đăng xuất và button */
+.logout-form {
+  margin: 0; /* Loại bỏ margin mặc định của form */
+  margin-right: 50px; /* Thêm margin phải để cách nút đăng xuất với mép phải */
+}
+
+.logout-button {
+  background-color: #4CAF50; /* Màu nền cho nút đăng xuất */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px; /* Bo tròn góc */
+}
+
+.logout-button:hover {
+  background-color: #367c39; /* Màu nền đậm hơn khi hover */
+}
+
+/* Style cho nút Sửa và Xóa */
+.book-right .button {
+  padding: 12px 24px; /* Tăng padding */
+  font-size: 18px; /* Tăng kích thước chữ */
+  border-radius: 8px; /* Bo tròn góc nhiều hơn */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.book-right button {
+    margin-left: 20px;
+    /*background-color: #b6e2d3;*/
+    border: none; /* Loại bỏ border mặc định */
+    color: white; /* Màu chữ trắng */
+    background-color: #007bff; /* Màu xanh dương cho nút */
+}
+
+.book-right button:hover {
+    /*background-color: #eb3c15;*/
+    background-color: #0056b3; /* Màu xanh đậm hơn khi hover */
+}
+
+/* Style cho thanh tìm kiếm */
+.container .tim-kiem {
+  width: 80%;
+  margin-right: 25px;
+  padding: 12px; /* Tăng padding */
+  font-size: 16px; /* Tăng kích thước chữ */
+  border: 2px solid #4CAF50; /* Thay đổi màu border */
+  border-radius: 8px; /* Bo tròn góc */
+  transition: border-color 0.3s ease; /* Thêm hiệu ứng chuyển màu */
+}
+
+.container .tim-kiem:focus {
+  outline: none; /* Loại bỏ outline khi focus */
+  border-color: #367c39; /* Thay đổi màu border khi focus */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Thêm hiệu ứng bóng đổ khi focus */
+}
+
+.container input[type="submit"] {
+  background-color: #4CAF50; /* Màu nền cho nút submit */
+  color: white; /* Màu chữ trắng */
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.container input[type="submit"]:hover {
+  background-color: #367c39; /* Màu nền đậm hơn khi hover */
+}

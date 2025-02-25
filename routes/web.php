@@ -37,8 +37,6 @@ Route::get('/quan-ly-sach', [QuanLySachController::class, 'index'])->name('quanl
 Route::get('/orders/manage', [OrderController::class, 'manage'])->name('orders.manage');
 
 // Tạo sản phẩm
-//Route::get('/tao-san-pham', [BookController::class, 'create'])->name('tao.sanpham')->middleware('auth');
-//Route::post('/tao-san-pham', [BookController::class, 'store'])->name('books.store')->middleware('auth');
 Route::get('/tao-san-pham', [BookController::class, 'create'])->name('tao.sanpham');
 Route::post('/tao-san-pham', [BookController::class, 'store'])->name('books.store');
 
@@ -60,6 +58,15 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 
 //Chi tiết sản phầm
 Route::get('/chitiet-sanpham/{id}', [ProductController::class, 'show'])->name('chitiet.sanpham');
+
+// Hiển thị form chỉnh sửa sách
+Route::get('/quan-ly-sach/{id}/edit', [QuanLySachController::class, 'edit'])->name('quanly.sach.edit');
+
+// Cập nhật thông tin sách
+Route::put('/quan-ly-sach/{id}', [QuanLySachController::class, 'update'])->name('quanly.sach.update');
+
+// Xóa sách
+Route::delete('/quan-ly-sach/{id}', [QuanLySachController::class, 'destroy'])->name('quanly.sach.destroy');
 
 //Thanh toán
 
