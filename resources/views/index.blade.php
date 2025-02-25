@@ -32,25 +32,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="Trang_chủ.php">Trang Chủ <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('trangchu') }}">Trang Chủ <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sản Phẩm
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            
+
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./Liên_hệ.html">Liên Hệ</a>
+                        <a class="nav-link" href="{{ route('gioithieu') }}">Giới Thiệu</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Giới_thiệu.php">Giới Thiệu</a>
-                    </li>
+
                 </ul>
-                <form class="form-inline ml-auto" method="post" action="">
-                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                <form class="form-inline ml-auto" method="get" action="{{ route('trangchu') }}">
+                    <input class="form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search" value="{{ $searchKeyword ?? '' }}">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
